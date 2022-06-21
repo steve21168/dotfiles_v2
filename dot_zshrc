@@ -54,13 +54,13 @@ source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
 
-# Use kube aliases
+# Aliases
+alias dt="cd ~/Desktop"
+alias reload="source ~/.zshrc"
+
 source ~/.kubectl_aliases
 source ~/.git_aliases
 
-# General Aliases
-alias dt="cd ~/Desktop"
-alias reload="source ~/.zshrc"
 
 ssh-jenkins() {
   ssh -t sgoodstein@ssh1-den "ssh -t medallia@10.207.192.$1" 'sudo -u jenkins -i'
@@ -73,6 +73,9 @@ export FZF_DEFAULT_COMMAND='ag --hidden -g .'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 source <(kubectl completion zsh)
+
+# PATH
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 export KUBECONFIG=/Users/stevengoodstein/.kube/config:/Users/stevengoodstein/.kube/medallia-kubeconfig
 
