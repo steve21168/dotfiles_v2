@@ -75,6 +75,7 @@ source <(kubectl completion zsh)
 
 # PATH
 export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 export KUBECONFIG=/Users/stevengoodstein/.kube/config:/Users/stevengoodstein/.kube/medallia-kubeconfig
 
