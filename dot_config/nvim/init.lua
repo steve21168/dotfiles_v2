@@ -1,0 +1,11 @@
+vim.cmd('source ~/.vimrc')
+
+require('user.nvim-tree'  )
+require('user.treesitter')
+require('user.nvim-cmp')
+require('user.lsp')
+require('user.lualine')
+require('user.autopairs')
+require('user.gitsigns')
+require('user.null-ls')
+require('user.which-key')
