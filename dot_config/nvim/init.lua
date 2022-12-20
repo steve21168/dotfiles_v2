@@ -8,5 +8,6 @@ require 'user.lualine'
 require 'user.gitsigns'
 require 'user.autopairs'
 require 'user.null-ls'
+require 'user.orgmode'
 
 vim.cmd('source ~/.vimrc')

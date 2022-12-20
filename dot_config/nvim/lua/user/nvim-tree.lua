@@ -1,5 +1,4 @@
 require'nvim-tree'.setup {
-  create_in_closed_folder = true,
   respect_buf_cwd = true,
   actions = {
     open_file = {
