@@ -11,12 +11,12 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
---   augroup end
--- ]])
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -74,6 +74,12 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
 
   use 'nvim-orgmode/orgmode'
+  use {
+    'akinsho/org-bullets.nvim',
+    config = function()
+      require('org-bullets').setup()
+    end
+  }
   use 'nvim-treesitter/playground'
 
   -- Standard Plugins
@@ -91,7 +97,6 @@ return packer.startup(function(use)
   use 'rafi/awesome-vim-colorschemes'
   use 'ntpeters/vim-better-whitespace'
   use 'tmux-plugins/vim-tmux-focus-events'
-  use 'sheerun/vim-polyglot'
   use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'
   use 'arcticicestudio/nord-vim'
