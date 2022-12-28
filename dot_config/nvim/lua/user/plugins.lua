@@ -32,6 +32,7 @@ packer.init {
 }
 
 return packer.startup(function(use)
+  use { "wbthomason/packer.nvim" }
 
   -- Treesitter
   use {
@@ -81,6 +82,7 @@ return packer.startup(function(use)
     end
   }
   use 'nvim-treesitter/playground'
+  use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
 
   -- Standard Plugins
   use 'tpope/vim-fugitive'

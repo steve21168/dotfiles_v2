@@ -43,6 +43,11 @@ wk.register({
       c = { "<cmd>lua vim.diagnostic.open_float({ format = function(diagnostic) return diagnostic['code'] end })<cr>", "Diagnostic code" },
       n = { '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Next" },
       p = { '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Previous" }
-    }
+    },
+    p = {
+      name = "Packer",
+      i = { ":PackerInstall"},
+      c = { ":PackerClean"}
+    },
   },
 })

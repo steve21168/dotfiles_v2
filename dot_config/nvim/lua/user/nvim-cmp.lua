@@ -93,6 +93,7 @@ cmp.setup({
           luasnip = "[Snippet]",
           buffer = "[Buffer]",
           path = "[Path]",
+          orgmode = "[Org]"
         })[entry.source.name]
         return vim_item
       end,
@@ -102,6 +103,7 @@ cmp.setup({
       { name = 'luasnip' },
       { name = 'buffer' },
       { name = 'path' },
+      { name = 'orgmode' },
     })
   })
 
