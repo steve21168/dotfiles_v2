@@ -84,7 +84,7 @@ return packer.startup(function(use)
   use 'nvim-treesitter/playground'
   use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
 
-  -- Standard Plugins
+  -- Standard Vim Plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
   use 'mileszs/ack.vim'

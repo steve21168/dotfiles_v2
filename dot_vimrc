@@ -51,8 +51,6 @@ nnoremap <leader>a gUiwe
 nnoremap <leader>A guiwe
 nnoremap <Leader>d *``cgn
 nnoremap <leader>h :set list!<CR> " Show listchars
-nnoremap <leader>n :bnext<CR>
-nnoremap <leader>p :bprevious<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 nnoremap <leader>v :let @/ = ""<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>

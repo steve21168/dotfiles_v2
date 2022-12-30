@@ -45,9 +45,9 @@ wk.register({
       p = { '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Previous" }
     },
     p = {
-      name = "Packer",
-      i = { ":PackerInstall"},
-      c = { ":PackerClean"}
+      name = "+Packer",
+      i = { ":PackerInstall<CR>", "Packer install"},
+      c = { ":PackerClean<CR>", "Packer Clean"}
     },
   },
 })
