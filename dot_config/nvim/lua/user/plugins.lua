@@ -75,12 +75,8 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
 
   use 'nvim-orgmode/orgmode'
-  use {
-    'akinsho/org-bullets.nvim',
-    config = function()
-      require('org-bullets').setup()
-    end
-  }
+  use 'akinsho/org-bullets.nvim'
+
   use 'nvim-treesitter/playground'
   use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
 
