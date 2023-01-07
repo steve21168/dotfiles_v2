@@ -57,10 +57,10 @@ export TERM=xterm-256color
 # Aliases
 alias dt="cd ~/Desktop"
 alias reload="source ~/.zshrc"
+alias nvim_config="cd ~/.config/nvim"
 
 source ~/.kubectl_aliases
 source ~/.git_aliases
-
 
 ssh-jenkins() {
   ssh -t sgoodstein@ssh1-den "ssh -t medallia@10.207.192.$1" 'sudo -u jenkins -i'
