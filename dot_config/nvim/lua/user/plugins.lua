@@ -76,6 +76,8 @@ return packer.startup(function(use)
 
   use 'nvim-orgmode/orgmode'
   use 'akinsho/org-bullets.nvim'
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} -- Fix fold issues
+
 
   use 'nvim-treesitter/playground'
   use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
@@ -98,6 +100,7 @@ return packer.startup(function(use)
   use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'
   use 'arcticicestudio/nord-vim'
+
   use {
     'kana/vim-textobj-line',
     requires = {
