@@ -11,6 +11,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = { 'yaml', 'ruby' }
   },
+  matchup = {
+    enable = true,
+  },
   playground = {
     enable = true,
     disable = {},

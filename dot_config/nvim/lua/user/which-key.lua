@@ -11,8 +11,10 @@ wk.register({
     x = { ":bp <BAR> bd #<CR>", "Buffer delete" },
     X = { ":bp <BAR> bd! #<CR>", "Buffer delete!" },
     b = { ":Buffers<CR>", "Search Buffers" },
-    f = { ":Ack!<Space>", "Grep", silent = false},
-    t = { ":Files<CR>", "Search files" },
+    f = { ":Telescope live_grep<CR>", "Grep", silent = false},
+    t = { ":Telescope find_files<CR>", "Search files" },
+    -- f = { ":Ack!<Space>", "Grep", silent = false},
+    -- t = { ":Files<CR>", "Search files" },
     c = {
       name = "+Config",
       r = { ":source ~/.config/nvim/init.lua <cr>", "Reload config" },

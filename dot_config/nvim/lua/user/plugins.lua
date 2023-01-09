@@ -34,6 +34,12 @@ packer.init {
 return packer.startup(function(use)
   use { "wbthomason/packer.nvim" }
 
+  -- Telescope
+  use {
+  'nvim-telescope/telescope.nvim',
+   tag = '0.1.0',
+   requires = { {'nvim-lua/plenary.nvim'} }
+}
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
@@ -100,6 +106,7 @@ return packer.startup(function(use)
   use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'
   use 'arcticicestudio/nord-vim'
+  use 'andymass/vim-matchup'
 
   use {
     'kana/vim-textobj-line',
