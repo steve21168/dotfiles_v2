@@ -13,6 +13,7 @@ wk.register({
     b = { ":Telescope buffers<CR>", "Search Buffers" },
     f = { ":Telescope live_grep<CR>", "Grep", silent = false},
     t = { ":Telescope find_files<CR>", "Search files" },
+    r = { ":Telescope resume<CR>", "Resume telescope search" },
     -- b = { ":Buffers<CR>", "Search Buffers" },
     -- f = { ":Ack!<Space>", "Grep", silent = false},
     -- t = { ":Files<CR>", "Search files" },
