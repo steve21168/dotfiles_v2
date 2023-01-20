@@ -10,9 +10,10 @@ wk.register({
     Q = { ":q!<CR>", "Quit!" },
     x = { ":bp <BAR> bd #<CR>", "Buffer delete" },
     X = { ":bp <BAR> bd! #<CR>", "Buffer delete!" },
-    b = { ":Buffers<CR>", "Search Buffers" },
+    b = { ":Telescope buffers<CR>", "Search Buffers" },
     f = { ":Telescope live_grep<CR>", "Grep", silent = false},
     t = { ":Telescope find_files<CR>", "Search files" },
+    -- b = { ":Buffers<CR>", "Search Buffers" },
     -- f = { ":Ack!<Space>", "Grep", silent = false},
     -- t = { ":Files<CR>", "Search files" },
     c = {
@@ -38,6 +39,7 @@ wk.register({
       m = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation"},
       s = { ":lua vim.lsp.buf.signature_help()<CR>", "Signature help" },
       n = { ":lua vim.lsp.buf.rename()<CR>", "Rename" },
+      l = { ":LspLog<CR>", "LspLog"}
     },
     d = {
       name = "+Diagnostics",

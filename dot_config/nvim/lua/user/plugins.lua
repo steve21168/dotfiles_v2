@@ -68,7 +68,8 @@ return packer.startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- Lua plugins
   use 'folke/which-key.nvim'
@@ -88,6 +89,13 @@ return packer.startup(function(use)
   use 'nvim-treesitter/playground'
   use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
 
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
   -- Standard Vim Plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
