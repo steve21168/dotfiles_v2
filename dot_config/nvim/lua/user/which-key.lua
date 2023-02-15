@@ -11,12 +11,10 @@ wk.register({
     x = { ":bp <BAR> bd #<CR>", "Buffer delete" },
     X = { ":bp <BAR> bd! #<CR>", "Buffer delete!" },
     b = { ":Telescope buffers<CR>", "Search Buffers" },
-    f = { ":Telescope live_grep<CR>", "Grep", silent = false},
+    f = { ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep", silent = true},
+    -- f = { ":Telescope live_grep<CR>", "Grep", silent = false},
     t = { ":Telescope find_files<CR>", "Search files" },
     r = { ":Telescope resume<CR>", "Resume telescope search" },
-    -- b = { ":Buffers<CR>", "Search Buffers" },
-    -- f = { ":Ack!<Space>", "Grep", silent = false},
-    -- t = { ":Files<CR>", "Search files" },
     c = {
       name = "+Config",
       r = { ":source ~/.config/nvim/init.lua <cr>", "Reload config" },
@@ -54,5 +52,9 @@ wk.register({
       i = { ":PackerInstall<CR>", "Packer install"},
       c = { ":PackerClean<CR>", "Packer Clean"}
     },
+    s = {
+      name = "+Search",
+      w = { ':Telescope grep_string<CR>', "Grep word under cursor" }
+    }
   },
 })

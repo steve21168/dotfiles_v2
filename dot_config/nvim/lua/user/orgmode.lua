@@ -32,7 +32,7 @@ require('ufo').setup({
 })
 -- Removes fold highlighting
 vim.cmd([[
-  augroup packer_user_config
+  augroup orgmode_disable_highlight
     autocmd!
     autocmd BufNewFile,BufRead *.org highlight folded none
   augroup end
