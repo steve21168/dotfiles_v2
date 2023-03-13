@@ -82,8 +82,6 @@ return packer.startup(function(use)
     'jose-elias-alvarez/null-ls.nvim',
     requires  = { 'nvim-lua/plenary.nvim' }
   }
-  use 'windwp/nvim-autopairs'
-
   use 'nvim-orgmode/orgmode'
   use 'akinsho/org-bullets.nvim'
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'} -- Fix fold issues
@@ -99,20 +97,37 @@ return packer.startup(function(use)
       require("trouble").setup {}
     end
   }
+
+  -- Mini
+  use {
+    'echasnovski/mini.nvim',
+    branch = 'stable',
+    config = function()
+      require('mini.animate').setup()
+      require('mini.comment').setup()
+      require('mini.indentscope').setup({
+        symbol = "│",
+        options = { indent_at_cursor = false, try_as_border = true },
+      })
+      require('mini.jump').setup()
+      require('mini.pairs').setup()
+      require('mini.surround').setup()
+    end
+  }
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
   -- Standard Vim Plugins
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'mileszs/ack.vim'
-  use {
-    'junegunn/fzf',
-    run = ":call fzf#install()",
-    requires = {  'junegunn/fzf.vim' }
-  }
-  use 'junegunn/fzf.vim'
-  use 'tpope/vim-commentary'
   use 'christoomey/vim-tmux-navigator'
   use 'rafi/awesome-vim-colorschemes'
-  use 'ntpeters/vim-better-whitespace'
+  use {
+    'ntpeters/vim-better-whitespace',
+    config = function()
+      vim.g.better_whitespace_filetypes_blacklist= { 'toggleterm' }
+    end
+  }
   use 'tmux-plugins/vim-tmux-focus-events'
   use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'

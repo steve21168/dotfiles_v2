@@ -7,7 +7,6 @@ require 'user.lsp'
 require 'user.which-key'
 require 'user.lualine'
 require 'user.gitsigns'
-require 'user.autopairs'
 require 'user.null-ls'
 require 'user.orgmode'
 

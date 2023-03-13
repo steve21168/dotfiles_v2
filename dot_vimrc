@@ -78,11 +78,6 @@ augroup highlight_yank
 augroup END
 
 " Plugin Settings
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 let g:buffergator_suppress_keymaps = 1
 
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim

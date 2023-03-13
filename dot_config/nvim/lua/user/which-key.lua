@@ -25,6 +25,7 @@ wk.register({
       l = { ":Gitsigns toggle_current_line_blame<CR>", "Blame line" },
       L = { ":lua require 'gitsigns'.blame_line()<CR>", "Blame line (popup)" },
       d = { ":Gitsigns diffthis<CR>", "Diff"},
+      g = { ":TermExec cmd=lazygit direction=float<CR>", "Lazygit", silent = true },
     },
     l = {
       name = "+LSP",
@@ -46,6 +47,10 @@ wk.register({
       c = { "<cmd>lua vim.diagnostic.open_float({ format = function(diagnostic) return diagnostic['code'] end })<cr>", "Diagnostic code" },
       n = { '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', "Next" },
       p = { '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', "Previous" }
+    },
+    i = {
+      name ="+Cmdline Interace",
+      t = { ":ToggleTerm direction=float<CR>", "Toggleterm" },
     },
     p = {
       name = "+Packer",

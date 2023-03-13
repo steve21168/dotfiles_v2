@@ -60,6 +60,8 @@ alias nvim_config="cd ~/.config/nvim"
 source ~/.kubectl_aliases
 source ~/.git_aliases
 
+export EDITOR=nvim
+
 ssh-jenkins() {
   ssh -t sgoodstein@ssh1-den "ssh -t medallia@10.207.192.$1" 'sudo -u jenkins -i'
 }
