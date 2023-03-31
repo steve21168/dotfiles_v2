@@ -25,7 +25,6 @@ wk.register({
       l = { ":Gitsigns toggle_current_line_blame<CR>", "Blame line" },
       L = { ":lua require 'gitsigns'.blame_line()<CR>", "Blame line (popup)" },
       d = { ":Gitsigns diffthis<CR>", "Diff"},
-      g = { ":TermExec cmd=lazygit direction=float<CR>", "Lazygit", silent = true },
     },
     l = {
       name = "+LSP",
@@ -51,6 +50,8 @@ wk.register({
     i = {
       name ="+Cmdline Interace",
       t = { ":ToggleTerm direction=float<CR>", "Toggleterm" },
+      g = { ":TermExec cmd=lazygit direction=float<CR>", "Lazygit", silent = true },
+      d = { ":TermExec cmd=lazydocker direction=float<CR>", "Lazydocker", silent = true },
     },
     p = {
       name = "+Packer",
