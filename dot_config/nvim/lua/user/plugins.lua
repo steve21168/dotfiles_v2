@@ -128,7 +128,6 @@ return packer.startup(function(use)
       vim.g.better_whitespace_filetypes_blacklist= { 'toggleterm' }
     end
   }
-  use 'tmux-plugins/vim-tmux-focus-events'
   use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'
   use 'arcticicestudio/nord-vim'
