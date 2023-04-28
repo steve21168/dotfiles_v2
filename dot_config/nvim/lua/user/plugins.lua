@@ -103,7 +103,6 @@ return packer.startup(function(use)
     'echasnovski/mini.nvim',
     branch = 'stable',
     config = function()
-      require('mini.animate').setup()
       require('mini.comment').setup()
       require('mini.indentscope').setup({
         symbol = "│",
@@ -141,7 +140,9 @@ return packer.startup(function(use)
   }
   use({
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end
   })
 
   if packer_bootstrap then
