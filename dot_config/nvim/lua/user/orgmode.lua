@@ -3,8 +3,8 @@ local orgmode = require('orgmode')
 orgmode.setup_ts_grammar()
 
 orgmode.setup({
-  org_agenda_files = {'~/Dropbox/notes/org/*' },
-  org_default_notes_file = '~/Dropbox/notes/org/misc.org',
+  org_agenda_files = {'~/Library/Mobile Documents/com~apple~CloudDocs/Dropbox-dump/notes/org/*' },
+  org_default_notes_file = '~/Library/Mobile Documents/com~apple~CloudDocs/Dropbox-dump/notes/org/misc.org',
   org_blank_before_new_entry = { heading = false, plain_list_item = false },
   org_todo_keywords = {'TODO', 'WIP', '|', 'DONE'},
   -- org_todo_keyword_faces = {

@@ -55,7 +55,8 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias dt="cd ~/Desktop"
 alias reload="source ~/.zshrc"
-alias nvim_config="cd ~/.config/nvim"
+alias nvim_config="~/.config/nvim"
+alias icloud_drive="~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 source ~/.kubectl_aliases
 source ~/.git_aliases
