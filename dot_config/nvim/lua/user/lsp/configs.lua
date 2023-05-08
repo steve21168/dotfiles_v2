@@ -1,7 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-local servers = { "sumneko_lua", "solargraph" , "eslint", "tsserver", "gopls"}
+local servers = { "lua_ls", "solargraph" , "eslint", "tsserver", "gopls"}
 
 require("mason-lspconfig").setup {
   ensure_installed = servers
