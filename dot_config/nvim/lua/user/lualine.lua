@@ -6,5 +6,8 @@ require('lualine').setup {
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
+  },
+  options = {
+    theme = "nord"
   }
 }

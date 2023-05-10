@@ -3,7 +3,7 @@ set nocompatible              " be iMproved, required
 filetype plugin indent on
 
 " Native Vim Settings "
-colorscheme nord
+" colorscheme nord
 let mapleader = ' '
 syntax on
 set number
@@ -78,11 +78,6 @@ augroup highlight_yank
 augroup END
 
 " Plugin Settings
-let g:buffergator_suppress_keymaps = 1
-
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 
 let g:toggle_list_no_mappings = 0
-
-"" Git signs
-highlight link GitSignsCurrentLineBlame Comment

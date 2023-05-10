@@ -52,9 +52,59 @@ return packer.startup(function(use)
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
+    after = "nord.nvim",
     requires = {
       'kyazdani42/nvim-web-devicons',
-    }
+    },
+    config = function()
+      require'nvim-tree'.setup {
+        respect_buf_cwd = true,
+        actions = {
+          open_file = {
+            quit_on_open = true,
+          },
+        },
+        renderer = {
+          highlight_opened_files = 'all',
+          highlight_git = true,
+          add_trailing = true,
+          group_empty = true,
+          icons = {
+            symlink_arrow = ' >> ',
+            show = {
+              git = true,
+              folder = true,
+              file = true,
+              folder_arrow = true,
+            },
+            glyphs = {
+              default = "",
+              symlink = "",
+              folder = {
+                arrow_open = "",
+                arrow_closed = "",
+                default = "",
+                open = "",
+                empty = "",
+                empty_open = "",
+                symlink = "",
+                symlink_open = "",
+              },
+              git = {
+                unstaged = "✗",
+                staged = "✓",
+                unmerged = "",
+                renamed = "➜",
+                untracked = "★",
+                deleted = "",
+                ignored = "◌"
+              },
+            },
+          },
+          special_files = { "README.md", "Makefile", "MAKEFILE" } -- List of filenames that gets highlighted with NvimTreeSpecialFile
+        }
+      }
+    end
   }
 
   -- Snippets
@@ -76,7 +126,6 @@ return packer.startup(function(use)
 
   -- Lua plugins
   use 'folke/which-key.nvim'
-  use 'nvim-lualine/lualine.nvim'
   use 'lewis6991/gitsigns.nvim'
   use {
     'jose-elias-alvarez/null-ls.nvim',
@@ -97,6 +146,73 @@ return packer.startup(function(use)
       require("trouble").setup {}
     end
   }
+
+
+  use {
+    'lukas-reineke/headlines.nvim',
+    after = 'nvim-treesitter',
+    config = function()
+      require("headlines").setup({
+        markdown = {
+          headline_highlights = {
+            "Headline1",
+            "Headline2",
+            "Headline3",
+            "Headline4",
+            "Headline5",
+            "Headline6",
+          },
+          codeblock_highlight = "CodeBlock",
+          dash_highlight = "Dash",
+          quote_highlight = "Quote",
+          fat_headlines = false
+        },
+        org = {
+          fat_headlines = false
+        }
+      })
+    end,
+  }
+
+  use 'folke/tokyonight.nvim'
+
+  use {
+    'shaunsingh/nord.nvim',
+    config = function()
+      vim.g.nord_borders = true
+      vim.g.nord_italic = false
+      vim.g.nord_bold = false
+
+      require('nord').set()
+    end
+  }
+
+  use {
+    "nvim-lualine/lualine.nvim",
+    after = "nord.nvim",
+    config = function()
+      require('lualine').setup {
+        sections = {
+          lualine_a = {'mode'},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_c = {'filename'},
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        options = {
+          theme = "nord"
+        }
+      }
+    end,
+  }
+
+  -- use {
+  --   'nordtheme/vim',
+  --   config = function()
+  --     vim.cmd [[colorscheme nord]]
+  --   end
+  -- }
 
   -- Mini
   use {
@@ -120,16 +236,13 @@ return packer.startup(function(use)
   -- Standard Vim Plugins
   use 'tpope/vim-fugitive'
   use 'christoomey/vim-tmux-navigator'
-  use 'rafi/awesome-vim-colorschemes'
   use {
     'ntpeters/vim-better-whitespace',
     config = function()
       vim.g.better_whitespace_filetypes_blacklist= { 'toggleterm' }
     end
   }
-  use 'jeetsukumaran/vim-buffergator'
   use 'milkypostman/vim-togglelist'
-  use 'arcticicestudio/nord-vim'
   use 'andymass/vim-matchup'
 
   use {
