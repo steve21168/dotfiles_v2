@@ -2,7 +2,7 @@ return {
   { 'akinsho/org-bullets.nvim', lazy = true },
   {
     'nvim-orgmode/orgmode',
-    dependecies = "org-bullets.nvim",
+    dependencies = "org-bullets.nvim",
     ft = "org",
     config = function()
       local orgmode = require('orgmode')

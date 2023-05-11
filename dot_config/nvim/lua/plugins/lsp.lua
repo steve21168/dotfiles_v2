@@ -6,6 +6,6 @@ return {
       require("user.lsp")
     end
   },
-  { 'williamboman/mason.nvim', dependencies = 'nord.nvim' },
-  'williamboman/mason-lspconfig.nvim',
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
 }
