@@ -7,11 +7,7 @@ return {
     local diagnostics = null_ls.builtins.diagnostics
 
     null_ls.setup({
-      sources = {
-        -- null_ls.builtins.completion.spell,
-        null_ls.builtins.formatting.stylua,
-        diagnostics.flake8,
-      },
+      sources = diagnostics.flake8,
     })
   end
 }
