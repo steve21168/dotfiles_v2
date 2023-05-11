@@ -63,7 +63,7 @@ nnoremap ,= <C-w>=
 nnoremap ,c :call ToggleQuickfixList()<CR>
 nnoremap ,p "0p<CR>
 vnoremap ,p "0p<CR>
-nnoremap ,yf :let @+ = expand('%')<CR>
+nnoremap ,yf :let @+ = expand("%:~:.")<CR>
 
 cnoremap <C-b> <S-Left>
 cnoremap <C-f> <S-Right>

@@ -1,12 +1,17 @@
 vim.cmd('source ~/.vimrc')
 
-require 'user.plugins'
-require 'user.treesitter'
-require 'user.nvim-cmp'
-require 'user.telescope'
-require 'user.lsp'
-require 'user.which-key'
-require 'user.gitsigns'
-require 'user.null-ls'
-require 'user.orgmode'
-require 'user.highlights'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+require('user.highlights')
