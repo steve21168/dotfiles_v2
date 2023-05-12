@@ -58,7 +58,6 @@ return {
         options = { indent_at_cursor = false, try_as_border = true },
       })
       require('mini.jump').setup()
-      require('mini.pairs').setup()
       require('mini.surround').setup()
     end
   },

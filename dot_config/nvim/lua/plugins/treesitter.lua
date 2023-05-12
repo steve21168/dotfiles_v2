@@ -7,9 +7,8 @@ return {
       ignore_install = {},
       highlight = {
         enable = true,
-        disable = { 'yaml'},
-        -- additional_vim_regex_highlighting = false,
-        additional_vim_regex_highlighting = {'org'},
+        disable = { 'yaml' },
+        additional_vim_regex_highlighting = {'org', 'markdown'},
       },
       indent = {
         enable = true,
