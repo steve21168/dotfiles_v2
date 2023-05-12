@@ -8,7 +8,7 @@ return {
       highlight = {
         enable = true,
         disable = { 'yaml' },
-        additional_vim_regex_highlighting = {'org', 'markdown'},
+        additional_vim_regex_highlighting = { 'org' },
       },
       indent = {
         enable = true,

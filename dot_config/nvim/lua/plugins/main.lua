@@ -8,6 +8,40 @@ return {
   { "folke/trouble.nvim", dependencies = 'kyazdani42/nvim-web-devicons', config = true },
 
   {
+    "folke/zen-mode.nvim",
+    lazy = true,
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        tmux = {
+          enabled = true
+        }
+      }
+    }
+  },
+
+  {
+    "gaoDean/autolist.nvim",
+    ft = {
+      "markdown",
+      "text",
+    },
+    config = function()
+      local autolist = require("autolist")
+      autolist.setup()
+      autolist.create_mapping_hook("i", "<CR>", autolist.new)
+      autolist.create_mapping_hook("i", "<Tab>", autolist.indent)
+      autolist.create_mapping_hook("i", "<S-Tab>", autolist.indent, "<C-D>")
+      autolist.create_mapping_hook("n", "o", autolist.new)
+      autolist.create_mapping_hook("n", "O", autolist.new_before)
+      autolist.create_mapping_hook("n", ">>", autolist.indent)
+      autolist.create_mapping_hook("n", "<<", autolist.indent)
+      autolist.create_mapping_hook("n", "<C-r>", autolist.force_recalculate)
+      autolist.create_mapping_hook("n", ",x", autolist.invert_entry, "")
+    end,
+  },
+
+  {
     'lukas-reineke/headlines.nvim',
     dependencies = 'nvim-treesitter',
     ft = { 'org', 'markdown' },

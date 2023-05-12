@@ -15,3 +15,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 require('user.highlights')
+require('user.options')
