@@ -1,7 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
   lazy = true,
-  event = { "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/com~apple~CloudDocs/obsidian-notes/**.md" },
+  event = { "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/com~md~obsidian/Documents/notes/**.md" },
   cmd = { "ObsidianNew", "ObsidianToday" },
 
   dependencies = {
@@ -11,7 +11,7 @@ return {
   },
 
   opts = {
-    dir = "~/Library/Mobile Documents/com~apple~CloudDocs/obsidian-notes",
+    dir = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes",
     daily_notes = {
       folder = "dailies",
     },

@@ -57,6 +57,7 @@ alias dt="cd ~/Desktop"
 alias reload="source ~/.zshrc"
 alias nvim_config="~/.config/nvim"
 alias icloud_drive="~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias notes="~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/notes"
 
 source ~/.kubectl_aliases
 source ~/.git_aliases
