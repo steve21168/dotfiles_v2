@@ -1,7 +1,7 @@
 return {
   "epwalsh/obsidian.nvim",
   lazy = true,
-  event = { "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/com~md~obsidian/Documents/notes/**.md" },
+  event = { "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/notes/**.md" },
   cmd = { "ObsidianNew", "ObsidianToday" },
 
   dependencies = {

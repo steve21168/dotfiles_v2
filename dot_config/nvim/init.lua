@@ -13,6 +13,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
-require('user.highlights')
+require("lazy").setup("plugins", {
+  change_detection = {
+    enabled = true,
+    notify = false, -- get a notification when changes are found
+  },
+})
+
 require('user.options')
+require('user.mappings')
