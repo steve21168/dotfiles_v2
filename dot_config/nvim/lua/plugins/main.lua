@@ -117,7 +117,18 @@ return {
     end
   },
 
-  { "akinsho/toggleterm.nvim", version = '*', config = true, cmd = { "ToggleTerm", "TermExec" }},
+  {
+    "akinsho/toggleterm.nvim",
+    version = '*',
+    config = true,
+    cmd = { "ToggleTerm", "TermExec" },
+    keys = ",t",
+    opts = {
+      terminal_mappings = true,
+      open_mapping = ',t',
+      direction = 'float',
+    }
+  },
 
   { 'steve21168/command-pat.nvim' },
 

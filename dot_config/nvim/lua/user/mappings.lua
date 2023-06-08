@@ -71,6 +71,7 @@ local normal_mappings = {
   { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy"},
 
   { lhs = ',d', rhs = ":lua require('command-pat').OperateOnNSelection()<CR>", desc = "Run command on pattern"},
+  { lhs = ',n', rhs = ":lua require('command-pat').OperateOnPattern()<CR>", desc = "Run command on pattern"},
 }
 
 local visual_mappings = {
