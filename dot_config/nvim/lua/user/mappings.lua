@@ -36,7 +36,7 @@ local normal_mappings = {
 
   -- +LSP
   { lhs = '<leader>li', rhs = ":LspInfo<CR>", desc = "LSP info" },
-  { lhs = '<leader>lI', rhs = ":LspInstallInfo<CR>", desc = "LSP installer info" },
+  { lhs = '<leader>lI', rhs = ":Mason<CR>", desc = "Mason installer info" },
   { lhs = '<leader>ld', rhs = ":lua vim.lsp.buf.definition()<CR>", desc = "Definition" },
   { lhs = '<leader>lr', rhs = ":lua vim.lsp.buf.references()<CR>", desc = "References" },
   { lhs = '<leader>lf', rhs = ":lua vim.lsp.buf.formatting()<CR>", desc = "Formatting" },

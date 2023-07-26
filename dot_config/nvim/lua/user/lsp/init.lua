@@ -1,13 +1,11 @@
 -- Setup LSP
 require("mason").setup()
-require("mason-lspconfig").setup()
 
 local servers = { "lua_ls", "solargraph" , "eslint", "tsserver", "gopls", "marksman"}
 
 require("mason-lspconfig").setup {
   ensure_installed = servers
 }
-
 local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do
