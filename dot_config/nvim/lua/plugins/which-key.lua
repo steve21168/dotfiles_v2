@@ -14,6 +14,9 @@ return {
         s = { name = "+Search" },
         u = { name = "+LuaDev" }
       },
+      [','] = {
+        d = { name = "+Dap" },
+      }
     })
   end
 }

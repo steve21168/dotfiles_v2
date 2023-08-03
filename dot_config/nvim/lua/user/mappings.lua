@@ -70,8 +70,15 @@ local normal_mappings = {
   { lhs = '<leader>X', rhs = ":bp <BAR> bd! #<CR>", desc = "Buffer delete!" },
   { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy"},
 
-  { lhs = ',d', rhs = ":lua require('command-pat').OperateOnNSelection()<CR>", desc = "Run command on pattern"},
-  { lhs = ',n', rhs = ":lua require('command-pat').OperateOnPattern()<CR>", desc = "Run command on pattern"},
+  -- +Diagnostics
+  { lhs = ',db', rhs = ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint"},
+  { lhs = ',ds', rhs = ":DapContinue<CR>", desc = "Launch/Attach Dap"},
+  { lhs = ',dr', rhs = ":DapToggleRepl<CR>", desc = "Toggle repl"},
+  { lhs = ',dt', rhs = ":DapTerminate<CR>", desc = "Dap terminate"},
+  { lhs = ',dl', rhs = ":DapShowLog<CR>", desc = "Dap terminate"},
+
+  { lhs = ',pd', rhs = ":lua require('command-pat').OperateOnNSelection()<CR>", desc = "Run command on pattern"},
+  { lhs = ',pn', rhs = ":lua require('command-pat').OperateOnPattern()<CR>", desc = "Run command on pattern"},
 }
 
 local visual_mappings = {
