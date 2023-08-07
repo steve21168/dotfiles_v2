@@ -1,13 +1,11 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'mason.nvim', 'mason-lspconfig.nvim', 'nvim-dap' },
+    dependencies = { 'mason.nvim', 'mason-lspconfig.nvim' },
     config = function()
       require("user.lsp")
-      require("user.dap")
     end
   },
   { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
-  { 'mfussenegger/nvim-dap' },
+  { 'williamboman/mason-lspconfig.nvim' }
 }
