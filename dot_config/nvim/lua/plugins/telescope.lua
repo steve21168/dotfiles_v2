@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  version = '0.1.0',
+  version = '0.1.5',
   dependencies = { {'nvim-lua/plenary.nvim'}, { "nvim-telescope/telescope-live-grep-args.nvim" }, },
   config = function()
     local telescope = require("telescope")
@@ -14,6 +14,7 @@ return {
             ["<C-h>"] = "which_key",
             ['<C-n>'] = actions.cycle_history_next,
             ['<C-p>'] = actions.cycle_history_prev,
+            ['<C-d>'] = actions.delete_buffer
           }
         },
         preview = {

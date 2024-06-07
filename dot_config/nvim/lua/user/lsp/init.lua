@@ -1,12 +1,17 @@
 -- Setup LSP
 require("mason").setup()
+require('java').setup()
 
-local servers = { "lua_ls", "solargraph" , "eslint", "tsserver", "gopls", "marksman"}
+local servers = { "lua_ls", "solargraph" , "eslint", "tsserver", "gopls", "marksman" }
+local mason_servers = { "lua_ls", "eslint", "tsserver", "gopls", "marksman" }
 
 require("mason-lspconfig").setup {
-  ensure_installed = servers
+  ensure_installed = mason_servers
 }
+
 local lspconfig = require("lspconfig")
+
+lspconfig.jdtls.setup({})
 
 for _, server in pairs(servers) do
   local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -73,7 +73,7 @@ local normal_mappings = {
   -- +Diagnostics
   { lhs = ',db', rhs = ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint"},
   { lhs = ',ds', rhs = ":DapContinue<CR>", desc = "Launch/Attach Dap"},
-  { lhs = ',dr', rhs = ":lua require('dapui').toggle()<CR>", desc = "Toggle repl"},
+  { lhs = ',dr', rhs = ":lua require('dapui').toggle({ reset = true })<CR>", desc = "Toggle repl"},
   { lhs = ',dt', rhs = ":DapTerminate<CR>", desc = "Dap terminate"},
   { lhs = ',dl', rhs = ":DapShowLog<CR>", desc = "Dap terminate"},
 

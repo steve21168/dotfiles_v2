@@ -27,11 +27,11 @@ return {
     disable_frontmatter = false,
 
     -- Optional, for templates (see below).
-    templates = {
-      subdir = "templates",
-      date_format = "%Y-%m-%d-%a",
-      time_format = "%H:%M",
-    },
+    -- templates = {
+    --   subdir = "templates",
+    --   date_format = "%Y-%m-%d-%a",
+    --   time_format = "%H:%M",
+    -- },
 
     -- Optional, set to true if you use the Obsidian Advanced URI plugin.
     -- https://github.com/Vinzent03/obsidian-advanced-uri
@@ -44,6 +44,7 @@ return {
   config = function(_, opts)
     require("obsidian").setup(opts)
 
+    vim.opt_local.conceallevel = 2
     vim.keymap.set("n", "gf", function()
       if require("obsidian").util.cursor_on_markdown_link() then
         return "<cmd>ObsidianFollowLink<CR>"

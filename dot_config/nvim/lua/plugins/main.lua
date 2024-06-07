@@ -20,7 +20,6 @@ return {
 
   {
     "gaoDean/autolist.nvim",
-    branch = "refac",
     ft = { "markdown", "text", },
     config = function()
       local autolist = require("autolist")
@@ -131,6 +130,44 @@ return {
   },
 
   { 'steve21168/command-pat.nvim' },
+
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = true,
+  --   dependencies = 'copilot.lua'
+  -- },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = true
+  --   -- opts = {
+  --     -- suggestion = { enabled = false },
+  --     -- panel = { enabled = false }
+  --   -- }
+  -- },
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opts = {
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = "<M-CR>",
+          accept_word = false,
+          accept_line = false,
+          next = "<M-n>",
+          prev = "<M-p>",
+          dismiss = "<M-BS>",
+        },
+      }
+    }
+  },
 
   -- Standard Vim Plugins
   'tpope/vim-fugitive',

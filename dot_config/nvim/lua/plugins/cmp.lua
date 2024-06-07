@@ -11,6 +11,8 @@ local function load_cmp()
 
   require("luasnip/loaders/from_vscode").lazy_load()
 
+  luasnip.filetype_extend("eruby", { "html" })
+
   local check_backspace = function()
     local col = vim.fn.col "." - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -42,6 +44,7 @@ local function load_cmp()
     Event = "",
     Operator = "󰆕",
     TypeParameter = "󰊄",
+    -- Copilot = ""
   }
 
   cmp.setup({
@@ -90,6 +93,7 @@ local function load_cmp()
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
           -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
           vim_item.menu = ({
+            -- copilot = "[CoPilot]",
             nvim_lsp = "[LSP]",
             luasnip = "[Snippet]",
             buffer = "[Buffer]",
@@ -100,6 +104,7 @@ local function load_cmp()
         end,
       },
       sources = cmp.config.sources({
+        -- { name = 'copilot' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
@@ -127,6 +132,7 @@ return {
       load_cmp()
     end,
     dependencies = {
+      -- "copilot-cmp",
       "cmp-nvim-lsp",
       "cmp_luasnip",
       "cmp-buffer",
