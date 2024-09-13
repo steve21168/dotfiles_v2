@@ -4,19 +4,16 @@ return {
     local wk = require("which-key")
     wk.setup {}
 
-    wk.register({
-      ["<leader>"] = {
-        c = { name = "+Config" },
-        g = { name = "+Git" },
-        l = { name = "+LSP" },
-        d = { name = "+Diagnostics" },
-        i = { name ="+Cmdline Interace" },
-        s = { name = "+Search" },
-        u = { name = "+LuaDev" }
-      },
-      [','] = {
-        d = { name = "+Dap" },
-      }
+    wk.add({
+      { "<leader>a", group = "AI" },
+      { "<leader>c", group = "Config" },
+      { "<leader>d", group = "Diagnostics" },
+      { "<leader>g", group = "Git" },
+      { "<leader>i", group = "Cmdline Interface" },
+      { "<leader>l", group = "LSP" },
+      { "<leader>s", group = "Search" },
+      { "<leader>u", group = "LuaDev" },
+      { ",d", group = "Dap" }
     })
   end
 }

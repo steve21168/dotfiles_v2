@@ -39,7 +39,7 @@ local normal_mappings = {
   { lhs = '<leader>lI', rhs = ":Mason<CR>", desc = "Mason installer info" },
   { lhs = '<leader>ld', rhs = ":lua vim.lsp.buf.definition()<CR>", desc = "Definition" },
   { lhs = '<leader>lr', rhs = ":lua vim.lsp.buf.references()<CR>", desc = "References" },
-  { lhs = '<leader>lf', rhs = ":lua vim.lsp.buf.formatting()<CR>", desc = "Formatting" },
+  { lhs = '<leader>lf', rhs = ":lua vim.lsp.buf.format()<CR>", desc = "Formatting" },
   { lhs = '<leader>lc', rhs = ":lua vim.lsp.buf.code_action()<CR>", desc = "Code actions" },
   { lhs = '<leader>lh', rhs = ":lua vim.lsp.buf.hover()<CR>", desc = "Hover" },
   { lhs = '<leader>lm', rhs = ":lua vim.lsp.buf.implementation()<CR>", desc = "Implementation"},
@@ -77,8 +77,12 @@ local normal_mappings = {
   { lhs = ',dt', rhs = ":DapTerminate<CR>", desc = "Dap terminate"},
   { lhs = ',dl', rhs = ":DapShowLog<CR>", desc = "Dap terminate"},
 
-  { lhs = ',pd', rhs = ":lua require('command-pat').OperateOnNSelection()<CR>", desc = "Run command on pattern"},
+  { lhs = ',pd', rhs = ":lua require('command-pat').OperateOnNSelection()<CR>", desc = "Run command on selection under cursor"},
   { lhs = ',pn', rhs = ":lua require('command-pat').OperateOnPattern()<CR>", desc = "Run command on pattern"},
+
+  -- +AI
+  { lhs = '<leader>ac', rhs = ":CodeCompanionChat<CR>", desc = "Open code companion chat"},
+  { lhs = '<leader>ap', rhs = ":CodeCompanion <CR>", desc = "Open code companion prompt"},
 }
 
 local visual_mappings = {

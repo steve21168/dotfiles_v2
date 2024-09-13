@@ -36,10 +36,6 @@ return {
         vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
         vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
 
-        -- if you don't want dot-repeat
-        -- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
-        -- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
-
         -- functions to recalculate list on edit
         vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
         vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
@@ -48,31 +44,37 @@ return {
     end,
   },
 
+  -- {
+  --   'lukas-reineke/headlines.nvim',
+  --   dependencies = 'nvim-treesitter',
+  --   ft = { 'org', 'markdown' },
+  --   config = true,
+  --   opts = {
+  --     markdown = {
+  --       headline_highlights = {
+  --         'Headline1',
+  --         'Headline2',
+  --         'Headline3',
+  --         'Headline4',
+  --         'Headline5',
+  --         'Headline6',
+  --       },
+  --       codeblock_highlight = 'CodeBlock',
+  --       dash_highlight = 'Dash',
+  --       quote_highlight = 'Quote',
+  --       fat_headlines = false
+  --     },
+  --     org = {
+  --       fat_headlines = false,
+  --       headline_highlights = { 'Headline1', 'Headline2', 'Headline3', 'Headline4' },
+  --     }
+  --   }
+  -- },
+
   {
-    'lukas-reineke/headlines.nvim',
-    dependencies = 'nvim-treesitter',
-    ft = { 'org', 'markdown' },
-    config = true,
-    opts = {
-      markdown = {
-        headline_highlights = {
-          'Headline1',
-          'Headline2',
-          'Headline3',
-          'Headline4',
-          'Headline5',
-          'Headline6',
-        },
-        codeblock_highlight = 'CodeBlock',
-        dash_highlight = 'Dash',
-        quote_highlight = 'Quote',
-        fat_headlines = false
-      },
-      org = {
-        fat_headlines = false,
-        headline_highlights = { 'Headline1', 'Headline2', 'Headline3', 'Headline4' },
-      }
-    }
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
 
   'folke/tokyonight.nvim',
@@ -131,22 +133,6 @@ return {
 
   { 'steve21168/command-pat.nvim' },
 
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   config = true,
-  --   dependencies = 'copilot.lua'
-  -- },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   config = true
-  --   -- opts = {
-  --     -- suggestion = { enabled = false },
-  --     -- panel = { enabled = false }
-  --   -- }
-  -- },
-
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -159,13 +145,61 @@ return {
         auto_trigger = true,
         keymap = {
           accept = "<M-CR>",
-          accept_word = false,
+          accept_word = "<M-w>",
           accept_line = false,
           next = "<M-n>",
           prev = "<M-p>",
           dismiss = "<M-BS>",
         },
       }
+    }
+  },
+
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp", -- Optional: For activating slash commands and variables in the chat buffer
+      "nvim-telescope/telescope.nvim", -- Optional: For working with files with slash commands
+      {
+        "stevearc/dressing.nvim", -- Optional: Improves the default Neovim UI
+        opts = {},
+      },
+    },
+    opts = {
+      strategies = {
+        chat = { adapter = "copilot" },
+        inline = { adapter = "copilot" },
+        agent = { adapter = "copilot" },
+      },
+    },
+    config = true
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+      },
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
     }
   },
 
