@@ -1,4 +1,5 @@
 export ZSH=/Users/$(whoami)/.oh-my-zsh
+export ZSH=/Users/stevengoodstein/.oh-my-zsh
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="oxide"

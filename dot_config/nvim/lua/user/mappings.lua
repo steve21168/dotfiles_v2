@@ -1,6 +1,8 @@
 local api = vim.api
 
 local normal_mappings = {
+  { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" },
+
   { lhs = '<leader>b', rhs = ":Telescope buffers<CR>", desc = "Search Buffers" },
 
   --  +Config
@@ -24,10 +26,14 @@ local normal_mappings = {
   },
 
   -- +Git
+  { lhs = '<leader>ga', rhs = ":Git add -p", desc = "Git add"},
   { lhs = '<leader>gb', rhs = ":Git blame<CR>", desc = "Blame"},
+  { lhs = '<leader>gc', rhs = ":Git commit -m ", desc = "Git commit"},
+  { lhs = '<leader>gcam', rhs = ":Git commit --amend <CR>", desc = "Git amend"},
+  { lhs = '<leader>d', rhs = ":Gitsigns diffthis<CR>", desc = "Diff" },
+  { lhs = '<leader>gg', rhs = ":Git<CR>", desc = "Git summary"},
   { lhs = '<leader>gl', rhs = ":Gitsigns toggle_current_line_blame<CR>", desc = "Blame line"},
   { lhs = '<leader>gL', rhs = ":lua require 'gitsigns'.blame_line()<CR>", desc = "Blame line (popup)" },
-  { lhs = '<leader>d', rhs = ":Gitsigns diffthis<CR>", desc = "Diff" },
 
   -- +Cmdline Interace
   { lhs = '<leader>it', rhs = ":ToggleTerm direction=float<CR>", desc = "Toggleterm" },
@@ -51,6 +57,11 @@ local normal_mappings = {
 
   -- "+Search",
   { lhs = '<leader>sw', rhs = ':Telescope grep_string<CR>', desc = "Grep word under cursor" },
+  { lhs = '<leader>sq', rhs = ':Telescope quickfix<CR>', desc = "Send quickfix to telescope" },
+  { lhs = '<leader>ss', rhs = ':Telescope lsp_document_symbols<CR>', desc = "Search document symbols" },
+  { lhs = '<leader>sm', rhs = ':Telescope lsp_document_symbols symbols=method<CR>', desc = "Search document methods" },
+  { lhs = '<leader>sg', rhs = ":lua require('user/custom_functions').grep_quickfix_files()<CR>", desc = "Grep quickfix list" },
+
 
   { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files" },
 

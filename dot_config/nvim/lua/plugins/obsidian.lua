@@ -18,6 +18,9 @@ return {
     completion = {
       nvim_cmp = true,
     },
+    ui = {
+       enable = false,
+    },
 
     note_id_func = function(title)
       return title

@@ -44,7 +44,7 @@ if has("clipboard")
 endif
 
 " Normal Mappings "
-nnoremap <C-n> :NvimTreeToggle<CR>
+" nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>R :NvimTreeRefresh<CR>
 
 nnoremap <leader>a gUiwe

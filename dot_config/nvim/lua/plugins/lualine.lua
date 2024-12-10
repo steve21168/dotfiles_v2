@@ -1,6 +1,5 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = "nord.nvim",
   config = function()
     require('lualine').setup {
       sections = {
@@ -12,7 +11,7 @@ return {
         lualine_z = {'location'}
       },
       options = {
-        theme = "nord"
+        theme = "catppuccin"
       }
     }
   end

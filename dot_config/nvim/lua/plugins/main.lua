@@ -44,64 +44,58 @@ return {
     end,
   },
 
-  -- {
-  --   'lukas-reineke/headlines.nvim',
-  --   dependencies = 'nvim-treesitter',
-  --   ft = { 'org', 'markdown' },
-  --   config = true,
-  --   opts = {
-  --     markdown = {
-  --       headline_highlights = {
-  --         'Headline1',
-  --         'Headline2',
-  --         'Headline3',
-  --         'Headline4',
-  --         'Headline5',
-  --         'Headline6',
-  --       },
-  --       codeblock_highlight = 'CodeBlock',
-  --       dash_highlight = 'Dash',
-  --       quote_highlight = 'Quote',
-  --       fat_headlines = false
-  --     },
-  --     org = {
-  --       fat_headlines = false,
-  --       headline_highlights = { 'Headline1', 'Headline2', 'Headline3', 'Headline4' },
-  --     }
-  --   }
-  -- },
-
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    opts = {},
+    ft = { 'markdown' },
+    opts = {
+      heading = {
+        enabled = true,
+        sign = false,
+        position = 'inline',
+        backgrounds = {
+          'Headline1',
+          'Headline2',
+          'Headline3',
+          'Headline4',
+          'Headline5',
+          'Headline6',
+          -- 'RenderMarkdownH1Bg',
+          -- 'RenderMarkdownH2Bg',
+          -- 'RenderMarkdownH3Bg',
+          -- 'RenderMarkdownH4Bg',
+          -- 'RenderMarkdownH5Bg',
+          -- 'RenderMarkdownH6Bg',
+        },
+      }
+    },
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
 
   'folke/tokyonight.nvim',
 
-  {
-    'shaunsingh/nord.nvim',
-    config = function()
-      vim.g.nord_borders = true
-      vim.g.nord_italic = false
-      vim.g.nord_bold = false
-
-      require('nord').set()
-      local colors = require('nord.colors')
-
-      -- Fix highlights
-      vim.api.nvim_set_hl(0, "QuickfixLine", { link = "CursorLine" })
-      vim.api.nvim_set_hl(0, "qFLineNr", { link = "CursorLine" })
-      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "NONE", bg = "NONE" })
-      vim.api.nvim_set_hl(0, "MiniJump", { fg = colors.nord0_gui, bg = colors.nord8_gui })
-
-      vim.cmd("hi Headline1 guibg=NONE")
-      vim.cmd("hi Headline2 guibg=NONE")
-      vim.cmd("hi Headline3 guibg=NONE")
-      vim.cmd("hi Headline4 guibg=NONE")
-      vim.cmd("hi Headline5 guibg=NONE")
-    end
-  },
+  -- {
+  --   'shaunsingh/nord.nvim',
+  --   config = function()
+  --     vim.g.nord_borders = true
+  --     vim.g.nord_italic = false
+  --     vim.g.nord_bold = false
+  --
+  --     require('nord').set()
+  --     local colors = require('nord.colors')
+  --
+  --     -- Fix highlights
+  --     vim.api.nvim_set_hl(0, "QuickfixLine", { link = "CursorLine" })
+  --     vim.api.nvim_set_hl(0, "qFLineNr", { link = "CursorLine" })
+  --     vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "NONE", bg = "NONE" })
+  --     vim.api.nvim_set_hl(0, "MiniJump", { fg = colors.nord0_gui, bg = colors.nord8_gui })
+  --
+  --     vim.cmd("hi Headline1 guibg=NONE")
+  --     vim.cmd("hi Headline2 guibg=NONE")
+  --     vim.cmd("hi Headline3 guibg=NONE")
+  --     vim.cmd("hi Headline4 guibg=NONE")
+  --     vim.cmd("hi Headline5 guibg=NONE")
+  --   end
+  -- },
 
   -- Mini
   {
@@ -113,7 +107,6 @@ return {
         symbol = "│",
         options = { indent_at_cursor = false, try_as_border = true },
       })
-      require('mini.jump').setup()
       require('mini.surround').setup()
     end
   },
@@ -157,6 +150,7 @@ return {
 
   {
     "olimorris/codecompanion.nvim",
+    cmd = { 'CodeCompanion', 'CodeCompanionChat' },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -174,7 +168,6 @@ return {
         agent = { adapter = "copilot" },
       },
     },
-    config = true
   },
 
   {
@@ -196,11 +189,48 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        }
+      }
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     }
+  },
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  },
+
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    opts = {
+      outline_window  = {
+        position = "left",
+      }
+    }
+  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "frappe", -- latte, frappe, macchiato, mocha
+        transparent_background = true
+      })
+
+      vim.cmd.colorscheme "catppuccin"
+    end
   },
 
   -- Standard Vim Plugins
@@ -217,7 +247,7 @@ return {
 
   'milkypostman/vim-togglelist',
 
-  'andymass/vim-matchup',
+  { 'andymass/vim-matchup', event = "BufReadPost" },
 
   { 'kana/vim-textobj-line', dependencies = 'kana/vim-textobj-user' },
 

@@ -1,7 +1,11 @@
 return {
   'nvim-telescope/telescope.nvim',
   version = '0.1.5',
-  dependencies = { {'nvim-lua/plenary.nvim'}, { "nvim-telescope/telescope-live-grep-args.nvim" }, },
+  dependencies = {
+    {'nvim-lua/plenary.nvim'},
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+  },
   config = function()
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
@@ -14,7 +18,7 @@ return {
             ["<C-h>"] = "which_key",
             ['<C-n>'] = actions.cycle_history_next,
             ['<C-p>'] = actions.cycle_history_prev,
-            ['<C-d>'] = actions.delete_buffer
+            ['<C-d>'] = actions.delete_buffer,
           }
         },
         preview = {
@@ -35,5 +39,6 @@ return {
     }
 
     telescope.load_extension("live_grep_args")
+    telescope.load_extension("fzf")
   end
 }
