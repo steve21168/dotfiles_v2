@@ -10,7 +10,7 @@ return {
     local telescope = require("telescope")
     local lga_actions = require("telescope-live-grep-args.actions")
     local actions = require("telescope.actions")
-    local custom_fucntions = require('user/custom_functions')
+    local custom_functions = require('user/custom_functions')
 
     telescope.setup {
       defaults = {
@@ -20,10 +20,10 @@ return {
             ['<C-n>'] = actions.cycle_history_next,
             ['<C-p>'] = actions.cycle_history_prev,
             ['<C-d>'] = actions.delete_buffer,
-            ['<C-g>'] = custom_fucntions.downward_grep
+            ['<C-g>'] = custom_functions.downward_grep
           },
           n = {
-            ['<C-g>'] = custom_fucntions.downward_grep,
+            ['<C-g>'] = custom_functions.downward_grep,
           }
         },
         preview = {
@@ -38,6 +38,10 @@ return {
               ["<C-k>"] = lga_actions.quote_prompt(),
               ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
             },
+            n = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+            }
           }
         }
       }

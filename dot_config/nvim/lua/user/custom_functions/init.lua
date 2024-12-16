@@ -8,13 +8,13 @@ M.grep_quickfix_files = function()
     file_list[i] = vim.api.nvim_buf_get_name(v.bufnr)
   end
 
-  local telescope = require('telescope.builtin')
-  telescope.live_grep({search_dirs = file_list})
+  local extensions = require('telescope').extensions
+  extensions.live_grep_args.live_grep_args({search_dirs = file_list})
 end
 
 -- For telescope usage
 M.downward_grep = function()
-  local telescope = require('telescope.builtin')
+  local extensions = require('telescope').extensions
   local action_utils = require("telescope.actions.utils")
   local prompt_bufnr = vim.api.nvim_get_current_buf()
   local unique_files = {}
@@ -27,7 +27,7 @@ M.downward_grep = function()
     end
   end)
 
-  telescope.live_grep({search_dirs = file_list})
+  extensions.live_grep_args.live_grep_args({search_dirs = file_list})
 end
 
 return M
