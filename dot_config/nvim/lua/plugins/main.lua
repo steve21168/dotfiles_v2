@@ -1,7 +1,7 @@
 return {
   { 'lewis6991/gitsigns.nvim', config = true },
 
-  {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', lazy = true }, -- Fix fold issues
+  -- {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', lazy = true }, -- Fix fold issues
 
   {'nvim-treesitter/playground', cmd = "TSPlaygroundToggle" },
 
@@ -137,12 +137,12 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = "<M-CR>",
-          accept_word = "<M-w>",
+          accept = "<C-a>",
+          accept_word = "<C-w>",
           accept_line = false,
-          next = "<M-n>",
-          prev = "<M-p>",
-          dismiss = "<M-BS>",
+          next = "<C-j>",
+          prev = "<C-k>",
+          dismiss = "<C-d>"
         },
       }
     }
@@ -224,13 +224,49 @@ return {
     name = "catppuccin",
     priority = 1000,
     config = function()
+      local flavor = "frappe" -- latte, frappe, macchiato, mocha
+      local base_color = require("catppuccin.palettes").get_palette(flavor).base
       require("catppuccin").setup({
-        flavour = "frappe", -- latte, frappe, macchiato, mocha
-        transparent_background = true
+        flavour = flavor,
+        color_overrides = {
+          all = {
+            mantle = base_color,
+          }
+        }
       })
 
       vim.cmd.colorscheme "catppuccin"
     end
+  },
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    event = "BufEnter",
+    opts = {
+      git_services = {
+        ["github.medallia.com"] = "https://github.medallia.com/${owner}/${repository}/compare/${branch_name}?expand=1",
+      }
+    }
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    lazy = true,
+    config = {
+      keymaps = {
+        view = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close" } },
+        },
+        file_panel = {
+          { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close" } },
+        }
+      }
+    }
   },
 
   -- Standard Vim Plugins

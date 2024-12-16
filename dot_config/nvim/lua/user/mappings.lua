@@ -1,9 +1,19 @@
 local api = vim.api
 
 local normal_mappings = {
-  { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" },
 
+  -- Single letter bindings
+  { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" },
+  { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files" },
   { lhs = '<leader>b', rhs = ":Telescope buffers<CR>", desc = "Search Buffers" },
+  { lhs = '<leader>q', rhs = ':q<CR>', desc = "Quit" },
+  { lhs = '<leader>Q', rhs = ':q!<CR>', desc = "Quit!" },
+  { lhs = '<leader>w', rhs = ':w<CR>', desc = "Write" },
+  { lhs = '<leader>W', rhs = ':w!<CR>', desc = "Write!" },
+  { lhs = '<leader>x', rhs = ":bp <BAR> bd #<CR>", desc = "Buffer delete" },
+  { lhs = '<leader>X', rhs = ":bp <BAR> bd! #<CR>", desc = "Buffer delete!" },
+  { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy"},
+
 
   --  +Config
   { lhs = '<leader>cr', rhs = ":source ~/.config/nvim/init.lua <CR>", desc = "Reload config" },
@@ -26,14 +36,14 @@ local normal_mappings = {
   },
 
   -- +Git
-  { lhs = '<leader>ga', rhs = ":Git add -p", desc = "Git add"},
   { lhs = '<leader>gb', rhs = ":Git blame<CR>", desc = "Blame"},
-  { lhs = '<leader>gc', rhs = ":Git commit -m ", desc = "Git commit"},
-  { lhs = '<leader>gcam', rhs = ":Git commit --amend <CR>", desc = "Git amend"},
-  { lhs = '<leader>d', rhs = ":Gitsigns diffthis<CR>", desc = "Diff" },
-  { lhs = '<leader>gg', rhs = ":Git<CR>", desc = "Git summary"},
+  { lhs = '<leader>gc', rhs = ":Neogit commit<CR>", desc = "Neogit commit"},
+  { lhs = '<leader>gg', rhs = ":Neogit<CR>", desc = "Neogit summary"},
+  { lhs = '<leader>gp', rhs = ":Neogit push<CR>", desc = "Neogit push"},
   { lhs = '<leader>gl', rhs = ":Gitsigns toggle_current_line_blame<CR>", desc = "Blame line"},
   { lhs = '<leader>gL', rhs = ":lua require 'gitsigns'.blame_line()<CR>", desc = "Blame line (popup)" },
+  { lhs = '<leader>gr', rhs = ":Neogit branches<CR>", desc = "Neogit branches"},
+  { lhs = '<leader>gu', rhs = ":Neogit pull<CR>", desc = "Neogit pull"},
 
   -- +Cmdline Interace
   { lhs = '<leader>it', rhs = ":ToggleTerm direction=float<CR>", desc = "Toggleterm" },
@@ -62,9 +72,6 @@ local normal_mappings = {
   { lhs = '<leader>sm', rhs = ':Telescope lsp_document_symbols symbols=method<CR>', desc = "Search document methods" },
   { lhs = '<leader>sg', rhs = ":lua require('user/custom_functions').grep_quickfix_files()<CR>", desc = "Grep quickfix list" },
 
-
-  { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files" },
-
   -- +LuaDv
   {
     lhs = '<leader>ur',
@@ -72,14 +79,6 @@ local normal_mappings = {
     desc = "Reload package",
   },
   { lhs = '<leader>ui', rhs = ":lua print(vim.inspect())<left><left>", desc = "Inspect" },
-
-  { lhs = '<leader>q', rhs = ':q<CR>', desc = "Quit" },
-  { lhs = '<leader>Q', rhs = ':q!<CR>', desc = "Quit!" },
-  { lhs = '<leader>w', rhs = ':w<CR>', desc = "Write" },
-  { lhs = '<leader>W', rhs = ':w!<CR>', desc = "Write!" },
-  { lhs = '<leader>x', rhs = ":bp <BAR> bd #<CR>", desc = "Buffer delete" },
-  { lhs = '<leader>X', rhs = ":bp <BAR> bd! #<CR>", desc = "Buffer delete!" },
-  { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy"},
 
   -- +Diagnostics
   { lhs = ',db', rhs = ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint"},
