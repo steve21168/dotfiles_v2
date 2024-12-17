@@ -44,7 +44,7 @@ local normal_mappings = {
   { lhs = '<leader>gp', rhs = ":Neogit push<CR>", desc = "Neogit push"},
   { lhs = '<leader>gl', rhs = ":Gitsigns toggle_current_line_blame<CR>", desc = "Blame line"},
   { lhs = '<leader>gL', rhs = ":lua require 'gitsigns'.blame_line()<CR>", desc = "Blame line (popup)" },
-  { lhs = '<leader>gr', rhs = ":Neogit branches<CR>", desc = "Neogit branches"},
+  { lhs = '<leader>gr', rhs = ":Neogit branch<CR>", desc = "Neogit branches"},
   { lhs = '<leader>gu', rhs = ":Neogit pull<CR>", desc = "Neogit pull"},
 
   -- +Cmdline Interace
