@@ -71,8 +71,6 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
   },
 
-  'folke/tokyonight.nvim',
-
   -- {
   --   'shaunsingh/nord.nvim',
   --   config = function()

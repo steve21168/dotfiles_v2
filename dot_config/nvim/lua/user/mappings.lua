@@ -3,16 +3,18 @@ local api = vim.api
 local normal_mappings = {
 
   -- Single letter bindings
-  { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" },
-  { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files" },
-  { lhs = '<leader>b', rhs = ":Telescope buffers<CR>", desc = "Search Buffers" },
-  { lhs = '<leader>q', rhs = ':q<CR>', desc = "Quit" },
-  { lhs = '<leader>Q', rhs = ':q!<CR>', desc = "Quit!" },
-  { lhs = '<leader>w', rhs = ':w<CR>', desc = "Write" },
-  { lhs = '<leader>W', rhs = ':w!<CR>', desc = "Write!" },
-  { lhs = '<leader>x', rhs = ":bp <BAR> bd #<CR>", desc = "Buffer delete" },
-  { lhs = '<leader>X', rhs = ":bp <BAR> bd! #<CR>", desc = "Buffer delete!" },
-  { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy"},
+  { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" , opts = { silent = true }},
+  { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files", opts = { silent = true } },
+  { lhs = '<leader>b', rhs = ":Telescope buffers<CR>", desc = "Search Buffers", opts = { silent = true } },
+  { lhs = '<leader>q', rhs = ':q<CR>', desc = "Quit", opts = { silent = true } },
+  { lhs = '<leader>Q', rhs = ':q!<CR>', desc = "Quit!", opts = { silent = true } },
+  { lhs = '<leader>w', rhs = ':w<CR>', desc = "Write", opts = { silent = true } },
+  { lhs = '<leader>W', rhs = ':w!<CR>', desc = "Write!", opts = { silent = true } },
+  { lhs = '<leader>x', rhs = ":bp <BAR> bd #<CR>", desc = "Buffer delete", opts = { silent = true }},
+  { lhs = '<leader>X', rhs = ":bp <BAR> bd! #<CR>", desc = "Buffer delete!", opts = { silent = true }},
+  { lhs = '<leader><left>', rhs = ":bp<CR>", desc = "Buffer last", opts = { silent = true }},
+  { lhs = '<leader><right>', rhs = ":bnext<CR>", desc = "Buffer next", opts = { silent = true }},
+  { lhs = '<leader>z', rhs = ":Lazy<CR>", desc = "Lazy", opts = { silent = true }},
 
 
   --  +Config
@@ -80,7 +82,7 @@ local normal_mappings = {
   },
   { lhs = '<leader>ui', rhs = ":lua print(vim.inspect())<left><left>", desc = "Inspect" },
 
-  -- +Diagnostics
+  -- +Dap
   { lhs = ',db', rhs = ":DapToggleBreakpoint<CR>", desc = "Toggle breakpoint"},
   { lhs = ',ds', rhs = ":DapContinue<CR>", desc = "Launch/Attach Dap"},
   { lhs = ',dr', rhs = ":lua require('dapui').toggle({ reset = true })<CR>", desc = "Toggle repl"},
