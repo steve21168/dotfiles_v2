@@ -47,8 +47,8 @@ endif
 " nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>R :NvimTreeRefresh<CR>
 
-nnoremap <leader>a gUiwe
-nnoremap <leader>A guiwe
+nnoremap <leader>eC gUiw
+nnoremap <leader>ec guiw
 nnoremap <Leader>d *``cgn
 nnoremap <leader>h :set list!<CR> " Show listchars
 nnoremap <leader>v :let @/ = ""<CR>

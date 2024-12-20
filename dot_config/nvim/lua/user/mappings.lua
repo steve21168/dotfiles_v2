@@ -6,6 +6,7 @@ local normal_mappings = {
   { lhs = '<C-n>', rhs = ":Oil<CR>", desc = "Open parent directory" , opts = { silent = true }},
   { lhs = '<leader>t', rhs = ":Telescope find_files<CR>", desc = "Search files", opts = { silent = true } },
   { lhs = '<leader>b', rhs = ":Telescope buffers<CR>", desc = "Search Buffers", opts = { silent = true } },
+  { lhs = '<leader>k', rhs = ":lua require('notify').dismiss { pending = true, silent = true }<CR>", desc = "Dismiss notifications", opts = { silent = true } },
   { lhs = '<leader>q', rhs = ':q<CR>', desc = "Quit", opts = { silent = true } },
   { lhs = '<leader>Q', rhs = ':q!<CR>', desc = "Quit!", opts = { silent = true } },
   { lhs = '<leader>w', rhs = ':w<CR>', desc = "Write", opts = { silent = true } },
@@ -37,6 +38,10 @@ local normal_mappings = {
     opts = { silent = true }
   },
 
+  --+Edit
+  { lhs = '<leader>ec', rhs = "guiw", desc = "Edit casing" },
+  { lhs = '<leader>eC', rhs = "gUiw", desc = "Edit casing" },
+
   -- +Git
   { lhs = '<leader>gbl', rhs = ":Git blame<CR>", desc = "Blame"},
   { lhs = '<leader>gc', rhs = ":Neogit commit<CR>", desc = "Neogit commit"},
@@ -44,7 +49,7 @@ local normal_mappings = {
   { lhs = '<leader>gp', rhs = ":Neogit push<CR>", desc = "Neogit push"},
   { lhs = '<leader>gl', rhs = ":Gitsigns toggle_current_line_blame<CR>", desc = "Blame line"},
   { lhs = '<leader>gL', rhs = ":lua require 'gitsigns'.blame_line()<CR>", desc = "Blame line (popup)" },
-  { lhs = '<leader>br', rhs = ":Neogit branch<CR>", desc = "Neogit branches"},
+  { lhs = '<leader>gbr', rhs = ":Neogit branch<CR>", desc = "Neogit branches"},
   { lhs = '<leader>gu', rhs = ":Neogit pull<CR>", desc = "Neogit pull"},
 
   -- +Cmdline Interace
