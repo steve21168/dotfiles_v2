@@ -38,13 +38,13 @@ local normal_mappings = {
   },
 
   -- +Git
-  { lhs = '<leader>gb', rhs = ":Git blame<CR>", desc = "Blame"},
+  { lhs = '<leader>gbl', rhs = ":Git blame<CR>", desc = "Blame"},
   { lhs = '<leader>gc', rhs = ":Neogit commit<CR>", desc = "Neogit commit"},
   { lhs = '<leader>gg', rhs = ":Neogit<CR>", desc = "Neogit summary"},
   { lhs = '<leader>gp', rhs = ":Neogit push<CR>", desc = "Neogit push"},
   { lhs = '<leader>gl', rhs = ":Gitsigns toggle_current_line_blame<CR>", desc = "Blame line"},
   { lhs = '<leader>gL', rhs = ":lua require 'gitsigns'.blame_line()<CR>", desc = "Blame line (popup)" },
-  { lhs = '<leader>gr', rhs = ":Neogit branch<CR>", desc = "Neogit branches"},
+  { lhs = '<leader>br', rhs = ":Neogit branch<CR>", desc = "Neogit branches"},
   { lhs = '<leader>gu', rhs = ":Neogit pull<CR>", desc = "Neogit pull"},
 
   -- +Cmdline Interace
